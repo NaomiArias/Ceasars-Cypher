@@ -1,0 +1,17 @@
+def decrypt(ciphertext, shift):
+    igotit = ""
+    for char in ciphertext:
+        if char.isalpha():  # Check if the character is a letter
+            shifted_char = chr((ord(char.lower()) - ord('a') - shift) % 26 + ord('a'))
+            igotit += shifted_char.upper() if char.isupper() else shifted_char
+        else:
+            igotit += char
+    return igotit
+
+# Example usage:
+text = open('text.txt')
+encoded_text = str(text.readlines())
+shift = 11
+youthought = decrypt(encoded_text, shift)
+print("Is it?:", youthought)
+print("Im not even asking tbh im just that good")
